@@ -75,7 +75,23 @@ def result(board, action):
     """
     Returns the board that results from making move (i, j) on the board.
     """
-    raise NotImplementedError
+    i = action[0]
+    j = action[1]
+    goal_position = ((i*3)+j)
+    actual_position = 0
+    result_board = board
+    finish = False
+
+    while not finish:
+        if actual_position == goal_position:
+            result_board[goal_position] = player(board)
+            finish = True
+        else:
+            finish = False
+
+        actual_position += 1
+
+    return result_board
 
 
 def winner(board):
