@@ -83,36 +83,38 @@ def winner(board):
     """
     Returns the winner of the game, if there is one.
     """
-    next = 0
+    win = None
 
+    finish = False
     while not finish:
-        cell = board[next]
-
-        if cell is None:
-            num = next
-            if 3 < num <= 6:
-                num -= 3
-                actions.add(1, num)
-            elif 6 < num <= 9:
-                num -= 6
-                actions.add(2, num)
-            elif num <= 3:
-                actions.add(0, num)
-
-        next += 1
-
-        if next == 10:
+        if board[0][0] == board[0][1] == board[0][2]:
+            win = board[0][0]
             finish = True
-        else:
-            finish = False
+        elif board[1][0] == board[1][1] == board[1][2]:
+            win = board[1][0]
+            finish = True
+        elif board[2][0] == board[2][1] == board[2][2]:
+            win = board[2][0]
+            finish = True
 
+        if board[0][0] == board[1][0] == board[2][0]:
+            win = board[0][0]
+            finish = True
+        elif board[0][1] == board[1][1] == board[2][1]:
+            win = board[0][1]
+            finish = True
+        elif board[0][2] == board[1][2] == board[2][2]:
+            win = board[0][2]
+            finish = True
 
+        if board[0][0] == board[1][1] == board[2][2]:
+            win = board[0][0]
+            finish = True
+        elif board[0][2] == board[1][1] == board[2][0]:
+            win = board[0][2]
+            finish = True
 
-
-        #up = ((i+3, j-1),(i+3, j),(i+3,j+1))
-
-
-    raise NotImplementedError
+    return win
 
 
 def terminal(board):
