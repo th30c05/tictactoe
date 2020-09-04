@@ -25,13 +25,14 @@ def player(board):
     x_counter = 0
     o_counter = 0
 
-    for cell in board:
-        if cell == X:
-            x_counter += 1
-        elif cell == O:
-            o_counter += 1
-        elif cell is None:
-            pass
+    for rown in board:
+        for cell in rown:
+            if cell == X:
+                x_counter += 1
+            elif cell == O:
+                o_counter += 1
+            elif cell is None:
+                pass
 
     if x_counter > o_counter:
         return O
@@ -63,7 +64,7 @@ def actions(board):
 
         next += 1
 
-        if next == 10:
+        if next == 9:
             finish = True
         else:
             finish = False
@@ -98,6 +99,35 @@ def winner(board):
     """
     Returns the winner of the game, if there is one.
     """
+    next = 0
+
+    while not finish:
+        cell = board[next]
+
+        if cell is None:
+            num = next
+            if 3 < num <= 6:
+                num -= 3
+                actions.add(1, num)
+            elif 6 < num <= 9:
+                num -= 6
+                actions.add(2, num)
+            elif num <= 3:
+                actions.add(0, num)
+
+        next += 1
+
+        if next == 10:
+            finish = True
+        else:
+            finish = False
+
+
+
+
+        #up = ((i+3, j-1),(i+3, j),(i+3,j+1))
+
+
     raise NotImplementedError
 
 
