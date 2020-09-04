@@ -86,34 +86,24 @@ def winner(board):
     """
     win = None
 
-    finish = False
-    while not finish:
-        if board[0][0] == board[0][1] == board[0][2]:
-            win = board[0][0]
-            finish = True
-        elif board[1][0] == board[1][1] == board[1][2]:
-            win = board[1][0]
-            finish = True
-        elif board[2][0] == board[2][1] == board[2][2]:
-            win = board[2][0]
-            finish = True
+    if board[0][0] == board[0][1] == board[0][2]:
+        win = board[0][0]
+    elif board[1][0] == board[1][1] == board[1][2]:
+        win = board[1][0]
+    elif board[2][0] == board[2][1] == board[2][2]:
+        win = board[2][0]
 
-        if board[0][0] == board[1][0] == board[2][0]:
-            win = board[0][0]
-            finish = True
-        elif board[0][1] == board[1][1] == board[2][1]:
-            win = board[0][1]
-            finish = True
-        elif board[0][2] == board[1][2] == board[2][2]:
-            win = board[0][2]
-            finish = True
+    if board[0][0] == board[1][0] == board[2][0]:
+        win = board[0][0]
+    elif board[0][1] == board[1][1] == board[2][1]:
+        win = board[0][1]
+    elif board[0][2] == board[1][2] == board[2][2]:
+        win = board[0][2]
 
-        if board[0][0] == board[1][1] == board[2][2]:
-            win = board[0][0]
-            finish = True
-        elif board[0][2] == board[1][1] == board[2][0]:
-            win = board[0][2]
-            finish = True
+    if board[0][0] == board[1][1] == board[2][2]:
+        win = board[0][0]
+    elif board[0][2] == board[1][1] == board[2][0]:
+        win = board[0][2]
 
     return win
 
