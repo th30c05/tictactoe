@@ -113,6 +113,7 @@ def terminal(board):
     Returns True if game is over, False otherwise.
     """
     counter = 0
+
     for rown in board:
         for cell in rown:
             if cell == X:
