@@ -45,10 +45,10 @@ def actions(board):
     Returns set of all possible actions (i, j) available on the board.
     """
     empty_cells = set()
-    finish = False
     num_row = 0
     num_cell = 0
 
+    finish = False
     while not finish:
         next_action = (board[num_row])[num_cell]
 
@@ -72,6 +72,7 @@ def result(board, action):
     Returns the board that results from making move (i, j) on the board.
     """
     result_board = board
+
     if (result_board[action[0]])[action[1]] == X or (result_board[action[0]])[action[1]] == O:
         raise NameError("Invalid Action")
     else:
