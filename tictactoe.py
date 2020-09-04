@@ -72,10 +72,12 @@ def result(board, action):
     Returns the board that results from making move (i, j) on the board.
     """
     result_board = board
+    if (result_board[action[0]])[action[1]] == X or (result_board[action[0]])[action[1]] == O:
+        raise NameError("Invalid Action")
+    else:
+        (result_board[action[0]])[action[1]] = player(board)
+        return result_board
 
-    (result_board[action[0]])[action[1]] = player(board)
-
-    return result_board
 
 
 def winner(board):
