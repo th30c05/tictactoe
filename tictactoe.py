@@ -44,32 +44,27 @@ def actions(board):
     """
     Returns set of all possible actions (i, j) available on the board.
     """
-    actions = set()
+    empty_cells = set()
     finish = False
-    next = 0
+    num_row = 0
+    num_cell = 0
 
     while not finish:
-        cell = board[next]
+        next_action = (board[num_row])[num_cell]
 
-        if cell is None:
-            num = next
-            if 3 < num <= 6:
-                num -= 3
-                actions.add(1, num)
-            elif 6 < num <= 9:
-                num -= 6
-                actions.add(2, num)
-            elif num <= 3:
-                actions.add(0, num)
+        if next_action is None:
+            empty_cells.add((num_row, num_cell))
 
-        next += 1
+        num_cell += 1
 
-        if next == 9:
+        if num_cell == 3:
+            num_cell -= 3
+            num_row += 1
+
+        if num_row == 3:
             finish = True
-        else:
-            finish = False
 
-    return actions
+    return empty_cells
 
 
 def result(board, action):
