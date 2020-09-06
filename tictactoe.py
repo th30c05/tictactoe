@@ -71,9 +71,9 @@ def result(board, action):
     """
     Returns the board that results from making move (i, j) on the board.
     """
-    result_board = board
+    result_board = copy.deepcopy(board)
 
-    if (result_board[action[0]])[action[1]] == X or (result_board[action[0]])[action[1]] == O:
+    if not (result_board[action[0]])[action[1]] is None:
         raise NameError("Invalid Action")
     else:
         (result_board[action[0]])[action[1]] = player(board)
