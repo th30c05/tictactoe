@@ -5,4 +5,4 @@ Using Minimax, implement an AI to play Tic-Tac-Toe optimally.
   
 Made By th30c05 
   
-Video:  
+Video:  [Youtube](https://www.youtube.com/watch?v=D7WLjlCHcEQ)
